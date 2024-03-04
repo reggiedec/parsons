@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+<meta charset="utf-8">
+<title>Midterm Quiz</title>
+<style> 
+	/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+	*/
+
+	html, body, div, span, applet, object, iframe,
+	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+	a, abbr, acronym, address, big, cite, code,
+	del, dfn, em, img, ins, kbd, q, s, samp,
+	small, strike, strong, sub, sup, tt, var,
+	b, u, i, center,
+	dl, dt, dd, ol, ul, li,
+	fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td,
+	article, aside, canvas, details, embed, 
+	figure, figcaption, footer, header, hgroup, 
+	menu, nav, output, ruby, section, summary,
+	time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	}
+	/* HTML5 display-role reset for older browsers */
+	article, aside, details, figcaption, figure, 
+	footer, header, hgroup, menu, nav, section {
+	display: block;
+	}
+	body {
+	line-height: 1;
+	}
+	ol, ul {
+	list-style: none;
+	}
+	blockquote, q {
+	quotes: none;
+	}
+	blockquote:before, blockquote:after,
+	q:before, q:after {
+	content: '';
+	content: none;
+	}
+	table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	} 
+	 /*  end reset  */
+ 	*, *:before, *:after { box-sizing: border-box; }
+	ol, ul {list-style: decimal; padding: 20px;}
+	p, li {margin: 7px 0 3px; font-size: 90%; line-height: 1.2em}
+	h1, h2, h3 {font-size: 1.25em; font-weight: 700; color: #555; padding: 30px 0 10px;}
+	h3 {display: none;}/* I add the heading to satisfy the requirements for article and section to have headers but I do not want those headers in the layout */
+	 /* * {outline: 1px solid pink;} */
+	/* place your css here and not in an external style sheet. */
+	
+		/* FLOATS */
+        section{
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        header{border-bottom: 3px solid gray;}
+
+        nav ul{padding:0;}
+        nav ul li{display:inline-block;}
+
+        nav a{text-decoration: none; color:white; background-color: red;margin: 10px; padding: 10px 20px;display:inline-block;}
+
+        nav a:hover{background-color:green;}
+
+        .left-column, .right-column{width: 150px; background-color: silver;float:left;}
+
+        .main-column{background-color: #ddd;width:400px;float:left;}
+
+        div{padding:20px;}
+
+        @media screen and (max-width: 700px) {
+            nav ul li{display:block;}
+            nav a{width:100%; text-align: center;}
+            .left-column, .main-column, .right-column{width:100%;}
+            section{padding:0 10px;}
+        }
+
+	 /* Display: table */
+        .l-column, .r-column{width: 150px; background-color: silver;}
+        .m-column{background-color: #ddd;width:400px;}
+        #part-2{display:table;}
+        #part-2 div{display: table-cell;}
+        .display-table.header{background-color: #ddd;}
+
+        @media screen and (max-width: 600px) {
+            .l-column, .r-column, .m-column, #part-2{display:block !important; width:100%;}
+        }
+	 
+	
+	 /* GRID / FLEX */
+
+        .grid{display:grid;grid-gap:10px;grid-template-columns: 1fr 3fr;}
+        .grid header, .grid footer{grid-column: 1 / -1;}
+        .grid > *{background-color: silver;padding:20px;border-radius: 5px;}
+        .header{display:flex;}
+        .header h2{margin:auto;}
+        .grid header,.grid p{padding:0 0 1em 0;}
+
+        @media screen and (max-width: 500px){
+            .grid{display:block;}
+            .grid >*{border-radius: 0;margin:5px;}
+        }
+        
+
+
+</style>
+</head>
+<body>
+<section class="floats">
+	<header>
+		<h1>Midterm Quiz</h1>
+		<h2>Part 1: Floats</h2>		
+		<nav>		
+			<ul>
+				<li><a href="#">one</a></li>
+				<li><a href="#">two</a></li>
+				<li><a href="#">three</a></li>
+				<li><a href="#">four</a></li>
+				<li><a href="#">five</a></li>
+			</ul>		
+		</nav>	
+	</header>	
+	<article class="float-example">
+	<h3>float example</h3>
+		<div class="left-column">
+			<p>Floats
+		</div>
+		<div class="main-column">
+		<p>Instructions: 
+		<ol>
+			<li>Give the section with the class float a 700 pixel width and center it. Hint. The section is a block element, so text-align: center; does not work. 
+			<li>Add a 3 pixel grey border on the bottom of the header tag.
+			<li>Display the menu horizontally across the page.
+			<li>Remove the underline from the links and color them white. Color background red. 
+			<li>Give links a 10 pixel margins, 10px 20px padding and set their display to inline-block. 
+			<li>Style the hover green. 
+			<li>The left and right columns are to be exactly 150 pixels wide. Color the background "silver". 
+			<li>The center column is to be 400 pixels wide and the background is colored #ddd;.
+			<li>Using floats, position the three content boxes so that the web page is a 3 column layout. 
+			<li>Add 20 pixel padding to all columns. Hint. All columns are divs.
+			</ol>
+			<p>Make the float layout responsive.
+			<ol>
+			<li>When the screen goes below 700 pixels set media queries to true: @media screen and (max-width: 700px) {}
+			<li>Display the navigation list items as blocks.
+			<li>Set the width of navigation links to 100% and center the text. This works because the links are displayed as inline-blocks.
+			<li>Set column width to 100%. This stacks the floats. 
+			<li>Add 10 pixel padding to the sides of section elements.
+		</ol>
+		</div>
+		<div class="right-column">
+			<p>Right column
+		</div>
+	</article>
+	</section>
+	<section class="display_table">
+		<h2 style="clear: both;">Part 2: Display Table</h2>		
+		<header class="header">
+			<h2>Display Header</h2>		
+		</header>	
+	<article id="part-2">	
+	<h3>Display Table</h3>
+		<div class="l-column">
+			<p>Display Table
+		</div>
+		<div class="m-column">
+			<p>Instructions: 
+			<ol>
+				<li>Keep the width and background color of the columns from above. 
+				<li>Using the display property, turn these three content boxes into columns similar to the three column layout above. 
+				<li>Display the container as a table and the three columns as table cells. 
+				<li>Target the header specific to this section and color the background #ddd.
+			</ol>
+			<p>Make the layout responsive. 
+			<ol>
+				<li>When the screen goes below 600 pixels engage media queries: @media screen and (max-width: 600px)
+				<li>Target the columns and their container. Set display to block. 
+				<li>When that didn't work as expected I had to add some persuasion. !important does the trick. 
+
+			</ol>
+		</div>
+		<div class="r-column">
+			<p>Right column
+		</div>
+	</article>
+	<h2>Part 3: Grid</h2>		
+	
+	</section>
+	
+<section class="grid" style="margin: auto;">
+<header class="header"><h2>Grid header</h2></header>
+  <aside class="sidebar"><p>Grid + Flex </aside>
+  <article class="content">	<h3>Grid Property</h3>
+    <ol>
+		<li>Target the section with the class "gid" and display it as a grid with a 10 pixel grid-gap. 
+		<li>Make grid horizontal with two grid flex units. Set the first to 1 and the second to 3: grid-template-columns: 1fr 3fr;
+		<li>Set the header and footer to span both columns: grid-column: 1 / -1; 
+		<li>Select all elements inside of the grid and make the background silver, padding at 20 pixels, a 20 pixel margin on either side, and set the border-radius to 5 pixels. Hint, use universal selector to select the children.
+		<li>Target class header and set display to flex.
+		<li>Target the h1 inside the header and give it auto margins.   
+		<li>put 1em of padding at the bottom of headings and paragraphs. 
+	</ol>
+	<p>Make the grid responsive.
+	<ol>
+		<li>Set a media query to activate when viewport is less than 500 pixels: @media screen and (max-width: 500px)
+		<li>Turn grid into display block.
+		<li>For what used to be the grid children, get rid of border radius and add a 5 pixel margin on the border;
+    </ol>
+  </article>
+  <footer class="footer">
+	  <p>Grid Footer
+	
+  </footer>
+</section>
+</body>
+</html>

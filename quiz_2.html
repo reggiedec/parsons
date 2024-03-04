@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+<meta charset="utf-8">
+<title>Week 4: Layout Strategies</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<style> 
+
+	section {display: grid;  grid-template-rows: 1fr; padding: 0 10px;}
+	section>* {border: 3px solid purple; padding: 10px; }
+
+	nav a {text-decoration: none; background: red; color: white; padding: 10px 20px; margin: 2px; display: block;}
+	nav a:hover {background: green;}
+	nav li {list-style: none;}
+	img {width: 100%}
+
+	article li:nth-child(odd) { background: azure;}
+	article li:nth-child(even) { background: lightyellow;}
+	#empty, #finishing {display: flex; background: azure;}
+
+	@media all and (min-width: 600px) {
+		section>* {border: 1px solid purple; }
+		nav ul {display: flex; justify-content: center; }
+		nav li {flex-grow: 1}
+		section {grid-template-columns: 1fr 1fr 1fr;}
+		header, footer {grid-column: 1 / span 3;}
+		#instructions {grid-column: 2 / span 2;}
+	}
+</style>
+</head>
+<body>
+<main>
+<section>
+	<header>
+		<h1>Grid / Flex Box Quiz</h1>
+		<nav>		
+			<ul>
+				<li><a href="#">one</a></li>
+				<li><a href="#">two</a></li>
+				<li><a href="#">three</a></li>
+				<li><a href="#">four</a></li>
+				<li><a href="#">five</a></li>
+			</ul>		
+		</nav>	
+	</header>	
+		<article id="empty">
+		</article>
+		<article id="instructions">
+		<h2>Instructions</h2>		
+		<p>This exersize will work with CSS flexbox and CSS grids. There are similarities between the two. Flexbox has one dimension in either direction, x or y axis, and grid does both x and y axis. 
+		<p>View Rachel Andrews video as she creates a layout, to get an overall idea of how to develop a layout using grids to do a<a href="https://www.youtube.com/watch?v=MDWP95ObB2s" target="_blank"> layout from scratch</a>. She copies a BBC page that is more complicated than what you will run into but following her is rewarding. Watch the first 45 minutes.
+		<p> Setting up the grid.
+		<ol>
+			<li>Changing the display of an element from block to grid is all it takes to turn the direct children of the element into grid items. 	
+			<li>Target section and turn display to grid, add grid-template-rows at 1fr and give the section padding: 0 10px.
+			<li>Assuming that the grid takes up most if not all of the page, it will need to be responsive to gracefully end up with one column for a smartphone and more for larger screens.
+			<li>create a media query that puts the smartphone in the default position and the larger screen in the media query box using	@media all and (min-width: 600px) {}
+			<li>Most of the CSS will target the full screen version in the @media box. Check to see whether the CSS I ask you to target is for the smartphone and place the rules in the default position, or the large screen, and place the rules in the media query box. I will indicate where I want you to put the CSS rule.
+			<li>Set up the page for viewing on smartphones. 
+			<li>In the head set the viewport to the device screen size and force zoom to be 1:1 &lt; meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+			<li>Put a border on the children so you can see them. Don't forget to style the border solid. Targeting the direct children requires > as in section>*. Using the universal selector here selects all the children. 
+			<li>For the smartphone create a 3px solid purple border on the bottom and 10px of padding. {border-bottom: 3px solid purple; padding: 10px;} 
+			<li>For larger screens create a full 1px purple border.
+			<li>Target images and set width to 100%; 			
+		</ol>
+		<p>Navigation flex box.
+		<ol>
+			<li>Target the navigation links and set text-decoration to none, background to red, text color to white, padding 10px top and bottom, 20px left and right. margin 2px and display as block.
+			<li>Set the hover background to green. 
+			<li>Remove list-style from navigation list items. Set it to none.
+			<li>The menu has to go inline for the large screen. There are a number of ways to do this. Traditionally it was done using display: inline-block or float. The flex-box option is the best.
+			<li>For the wide screen, turn the unordered list in the navigation element to display: flex and justify-content: center. 
+			<li>Turn the nav list items to flex-grow 1 for wide screen. That should spread out the links to the width of the parent element.
+		</ol>
+		<p>Styling the grid in widescreen
+		<ol>
+			<li>Target the wide screen grid divisions. grid-template-columns: 1fr 1fr 1fr;
+			<li>Span grid cells in  header and footer. header, footer {grid-column: 1 / span 3;}
+			<li>Span id instructions to cover two rows. #instructions {grid-column: 2 / span 2;}
+		</ol>
+	</article>
+	<article id=universal >
+		<h2>Video and Grid Resources</h2>		
+		<figure>
+			<img src="http://b.parsons.edu/~dejongo/12-fall/stuff/04-RachelAndresLayoutdemo.jpg" alt="Rachel Andrews layout from scratch" />
+		</figure>
+		<ol>
+			<li>Watch the first 45 minutes of Rachel Andrew as she works her way through a <a href="https://www.youtube.com/watch?v=MDWP95ObB2s"> layout from scratch</a> 
+			<li>Didn’t get enough? See Rachel Andrew go through another demonstration? <a href="https://www.youtube.com/watch?v=g1osnSY9mSU"> Build a responsive website</a> in under an hour and talks her way through with all the detail that will help you understand the how and why of building your site using grid layout. 
+			<li>Check out her new series on Understanding Grid at Smashing Magazine, <a href="https://www.smashingmagazine.com/2020/01/understanding-css-grid-container/">Creating a Grid Container</a>, <a href="https://www.smashingmagazine.com/2020/01/understanding-css-grid-lines/">Grid lines</a> and <a href="https://www.smashingmagazine.com/2020/02/understanding-css-grid-template-areas/">grid template areas</a>.
+			<li><a href="https://resilientwebdesign.com">Resilient Web Design</a> A great book if you are one of those people who wants to know more about the nature of the web by one of its pioneers.
+		</ol>
+		
+	</article>
+	<article id="finishing">
+		<h2>Finishing Up </h2>	
+			<ol>
+			<li>Target every odd list item in the articles with background color azure. :nth-child(odd).	Color the even ones lightyellow.
+			<li>target ids empty and finishing, set to flex and color background azure.		
+		</ol>
+	</article>
+	<article>
+		<h2>Flex Box Articles</h2>
+		<p>Learn more about flexbox by reading these articles written by Rachel Andrews.	
+		<ol>
+		<li><a href="https://www.smashingmagazine.com/2018/08/flexbox-display-flex-container/" target="_blank">What Happens When You Create A Flexbox Flex Container?</a>
+		<li><a href="https://www.smashingmagazine.com/2018/08/flexbox-alignment/" target="_blank">Everything You Need To Know About Alignment In Flexbox</a>
+		<li><a href="https://www.smashingmagazine.com/2018/09/flexbox-sizing-flexible-box/" target="_blank">Flexbox: How Big Is That Flexible Box?</a><li><a href="https://www.smashingmagazine.com/2018/10/flexbox-use-cases/" target="_blank">Use Cases For Flexbox</a>.
+		</ol>
+	</article>
+	<footer class="footer">
+  </footer>
+</section>
+</main>
+</body>
+</html>
